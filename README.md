@@ -17,7 +17,12 @@ joingun/
 │   └── 02-design/
 │       ├── feature-list.md
 │       ├── user-journey.md
-│       └── design-system.md
+│       ├── design-system.md
+│       ├── prototype.md
+│       └── prototype/
+│           ├── index.html
+│           ├── styles.css
+│           └── app.js
 └── เอกสาร/
     └── เอกสารต้นฉบับและสไลด์ W2–W4
 ```
@@ -35,27 +40,19 @@ joingun/
 | Feature list | [feature-list.md](.docs/02-design/feature-list.md) | มี 7 บรรทัด เลือก core เดียว |
 | User journey | [user-journey.md](.docs/02-design/user-journey.md) | มี happy path 5 ขั้นตอน: เข้าร่วมกิจกรรมจากฟีด |
 | Design system | [design-system.md](.docs/02-design/design-system.md) | มี tokens และ component rules; สี/ฟอนต์เป็นข้อเสนอ ยังไม่มีภาพ UI อ้างอิงของทีม |
-| Prototype | `.docs/02-design/prototype.md` และ `.docs/02-design/prototype/index.html` | ยังไม่ได้สร้าง |
+| Prototype | [วิธีเปิดและทดลอง](.docs/02-design/prototype.md) และ [HTML](.docs/02-design/prototype/index.html) | สร้างแล้ว: ฟีด ตัวกรอง รายละเอียด consent และผลสำเร็จ ใช้ข้อมูลจำลอง |
 | 4 diagrams | `.docs/02-design/diagrams.md` พร้อม source ใน `.docs/02-design/diagrams/` | ยังไม่ได้สร้าง |
 
 คำสั่งอาจารย์ไม่ได้กำหนด path ของ Proposal: `00-proposal/` เป็นข้อเสนอจัดเก็บ ส่วน path ของ backlog, design และตำแหน่ง root ของ rule มีระบุในคำสั่ง/สไลด์
 
-## โครงสร้างสำหรับงานถัดไป (ยังไม่มีไฟล์เหล่านี้)
+## เปิด prototype
 
-```text
-.docs/
-├── 00-proposal/
-│   └── proposal.md
-└── 02-design/
-    ├── prototype.md       # สรุปหน้าจอ วิธีเปิด และสิ่งที่ทดลองกด
-    ├── prototype/
-    │   ├── index.html     # ต้นแบบคลิกได้
-    │   └── assets/        # CSS/JS/ภาพ เมื่อจำเป็น
-    ├── diagrams.md        # รวม D1–D4 และคำอธิบาย
-    └── diagrams/          # source ที่แก้ไขได้ เช่น .drawio หรือ .puml
-```
+เปิด `.docs/02-design/prototype/index.html` ที่ดาวน์โหลดมาบนเครื่องได้โดยตรง ไม่ต้องติดตั้ง dependency; ต้องเก็บ `styles.css` และ `app.js` ไว้ด้วยกัน ดูขั้นตอนทดลองและข้อจำกัดใน [prototype.md](.docs/02-design/prototype.md)
 
-`prototype.md` และ `prototype/` ใช้ร่วมกันได้: W4 หน้า 3 ระบุเอกสารอธิบาย ส่วนหน้า 16 ระบุโฟลเดอร์ HTML ต้นแบบ การเลือกชื่อ `index.html`, `assets/` และโฟลเดอร์ source diagrams เป็นแนวทางจัดเก็บของโปรเจกต์นี้
+## ไฟล์ที่ยังต้องสร้าง
+
+- `.docs/00-proposal/proposal.md` — Updated Proposal
+- `.docs/02-design/diagrams.md` — D1–D4 พร้อม source ที่แก้ไขได้ใน `diagrams/`
 
 Prototype ให้ยึด journey และ design-system เดิม: หน้าฟีดพร้อมตัวกรอง → รายละเอียดกิจกรรม → ยืนยันและแสดงผลสำเร็จ ใช้ 3 หน้าหลักร่วมกับแผงยืนยันได้ ไม่จำเป็นต้องสร้าง 5 หน้าเพียงเพราะ journey มี 5 ขั้นตอน ต้องเป็น mobile-first, เนื้อหาไม่เกิน 480px และปุ่มกดได้สะดวก
 
@@ -66,7 +63,7 @@ Prototype ให้ยึด journey และ design-system เดิม: ห�
 1. อัปเดต Proposal จากข้อมูลจริงของทีม โดยเฉพาะ problem statement, target users และ tech stack ที่ใช้ทำ D3
 2. เชื่อม pain/evidence จริง → F/NFR/LR → backlog; เติม story การ join/leave ที่ยังไม่มี F แยก และปรับ priority ที่ไม่ตรงกัน โดยไม่แต่งหลักฐานการสัมภาษณ์
 3. ปิดช่องว่างใน Legal traceability โดยเฉพาะหลักฐาน consent และการแยกหัวข้อ ETA/จริยธรรม AI ใน rule เดิม
-4. สร้าง prototype และ D1–D4 แล้วตรวจว่าทุกชิ้นเล่า workflow เดียวกันและอ้าง token เดียวกัน
+4. สร้าง D1–D4 ให้ตรงกับ prototype ที่มีแล้ว และทดลองใช้งานต้นแบบบนมือถือจริง
 5. เชื่อม Git repository ที่ทีมใช้ ตรวจไฟล์ที่จะ commit แล้ว commit/push; ใช้ remote `origin` ที่ `https://github.com/maefahluang-uni/Join-Gun.git` และ branch `main` สำหรับเอกสารชุดนี้
 
 W3 ยังระบุงานเครื่องมือประกอบ: `CLAUDE.md`, `.claude/agents/requirement-writer.md`, skill `.claude/skills/audit-backlog/SKILL.md` และโครงสร้าง log `.docs/05-log/` (หน้า 15, 22) ซึ่งยังไม่พบในชุดไฟล์นี้ ต้องตรวจงานที่ทีมอาจทำไว้ใน repo เดิม ไม่สร้างไฟล์เปล่าหรืออ้างว่ารัน audit แล้ว ส่วนรายการส่ง 4 ข้อล่าสุดไม่ได้เรียกชื่อไฟล์เครื่องมือเหล่านี้โดยตรง

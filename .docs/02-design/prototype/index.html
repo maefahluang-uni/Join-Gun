@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JoinGun — ต้นแบบการค้นหาและเข้าร่วมกิจกรรมสำหรับนักศึกษา">
+  <title>JoinGun · กิจกรรม</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">ข้ามไปเนื้อหา</a>
+  <div class="app">
+    <header class="brand"><a href="#feed" aria-label="JoinGun กลับหน้ากิจกรรม"><span class="brand-mark" aria-hidden="true">J</span>JoinGun<span class="brand-dot">●</span></a><span class="badge">ต้นแบบ</span></header>
+    <aside class="demo-note">ข้อมูลตัวอย่าง · บัญชีผ่านการยืนยันแล้ว<br>การเข้าร่วมจะล้างเมื่อรีเฟรชหน้า</aside>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer">JoinGun · นัดทำกิจกรรมในมหาวิทยาลัย</footer>
+  </div>
+  <dialog id="filters" aria-labelledby="filter-title">
+    <form id="filter-form" class="stack">
+      <div class="dialog-heading"><h2 id="filter-title">ตัวกรอง</h2><button class="icon-button" type="button" data-close="filters" aria-label="ปิดตัวกรอง">×</button></div>
+      <label for="category">หมวดกิจกรรม</label>
+      <select id="category" name="category"><option value="all">ทุกหมวด</option><option value="sport">กีฬา</option><option value="study">อ่านหนังสือ</option><option value="cafe">คาเฟ่</option></select>
+      <label for="date">วันที่ว่าง</label><input id="date" name="date" type="date">
+      <p class="muted caption">กิจกรรมตัวอย่างอยู่ระหว่าง 9–11 ก.ย. 2569</p>
+      <button class="button primary" type="submit">แสดงกิจกรรม</button>
+      <button class="button secondary" id="reset-filters" type="button">ล้างตัวกรอง</button>
+    </form>
+  </dialog>
+  <dialog id="confirmation" aria-labelledby="confirm-title">
+    <form id="join-form" class="stack">
+      <h2 id="confirm-title">ยืนยันการเข้าร่วม</h2>
+      <div id="confirm-summary" class="summary"></div>
+      <p>เราจะเก็บประวัติการเข้าร่วมเพื่อจัดการกิจกรรมของคุณ แยกจากการใช้ GPS และคำแนะนำ AI</p>
+      <div id="consent-new"><label class="checkbox-row"><input id="consent" type="checkbox"><span>ยินยอมให้เก็บประวัติการเข้าร่วมเพื่อจัดการกิจกรรมของฉัน</span></label></div>
+      <div id="consent-existing" hidden><p class="success-text">✓ คุณให้ความยินยอมนี้แล้ว</p><button class="text-button" id="change-consent" type="button">จัดการความยินยอม</button></div>
+      <details><summary>นโยบายความเป็นส่วนตัวของต้นแบบ</summary><p class="caption">ใช้กิจกรรมและผู้จัดสมมติเท่านั้น การค้นหา ตัวกรอง ความยินยอม และการเข้าร่วมเก็บในหน่วยความจำของหน้านี้ ไม่ส่งข้อมูลไปเซิร์ฟเวอร์ ไม่อ่าน GPS ไม่ใช้คุกกี้หรือที่เก็บข้อมูลถาวร รีเฟรชเพื่อล้างข้อมูลทดลองทั้งหมด</p></details>
+      <p id="consent-hint" class="caption muted">เลือกความยินยอมก่อนยืนยันเข้าร่วม</p>
+      <button id="confirm-join" class="button primary" type="submit" disabled aria-describedby="consent-hint">ยืนยันเข้าร่วม</button>
+      <button class="button secondary" type="button" data-close="confirmation">กลับไปดูกิจกรรม</button>
+    </form>
+  </dialog>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  <noscript><p class="no-script">กรุณาเปิด JavaScript เพื่อทดลองค้นหาและเข้าร่วมกิจกรรม</p></noscript>
+</body>
+</html>
