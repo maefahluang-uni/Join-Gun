@@ -1,0 +1,47 @@
+# Requirement Specification: JoinGun Project
+
+## 1) Problem & Users
+**Primary Users:** University students (Years 1-4) who want to find peers to join activities such as sports, studying, or visiting cafes.
+
+**Identified Problems:** 
+Users often struggle to find people with matching interests at their preferred times. There are also challenges with conflicting schedules and miscommunication about meeting locations, leading to confusion. Most importantly, users have safety concerns when meeting strangers and require a system that filters or verifies identities to build trust.
+
+## 2) Functional Requirements (F)
+System functionalities prioritized using the MoSCoW method.
+
+*   **F1 (Must):** As a student, I want to sign up and verify my account using my university email, so that I can safely meet other verified students.
+*   **F2 (Must):** As a user, I want to create an activity post with a map pin and specific details, so that others can easily find the location and join me.
+*   **F3 (Must):** As a user, I want to browse activities on a feed in a card format, so that I can find interesting events to join.
+*   **F4 (Should):** As a user, I want to receive push notifications before the activity starts, so that I don't miss the appointment.
+*   **F5 (Should):** As a user, I want to set privacy controls on my activity history, so that only selected groups can see what I have joined.
+*   **F6 (Could):** As a user, I want to receive AI-driven activity recommendations based on my usage history, so that I can discover relevant events quickly.
+*   **F7 (Won't):** As a user, I want to use an in-app private messaging system to chat with other participants. (Deferred to the next phase)
+
+## 3) Non-Functional Requirements (NFR)
+Measurable performance expectations.
+
+*   **NFR1 (Performance):** The system must load the activity feed and display data cards within 2 seconds when connected to a 4G/5G network.
+*   **NFR2 (Accuracy):** The map system and meeting location pins must have a deviation of no more than 10 meters from the actual location selected by the user.
+*   **NFR3 (Reliability):** Account verification emails must be delivered to the user's inbox within 2 minutes after clicking the sign-up button.
+*   **NFR4 (Capacity):** The system must support at least 1,000 concurrent users with an API response time not exceeding 3 seconds.
+
+## 4) Legal Requirements (LR)
+Compliance and safety regulations based on rules and guidelines.
+
+*   **LR1 (Consent & PDPA):** The system must provide a separate, clear opt-in consent prompt before collecting GPS location data and activity participation history.
+*   **LR2 (Data Erasure):** When a user deletes their account, the system must permanently delete their profile data or anonymize their activity history within the legally required retention period.
+*   **LR3 (Traffic Log):** The system must retain an access/traffic log (e.g., IP address, login time, activity posting, and joining actions) tied to the user ID for at least 90 days, compliant with the Computer-related Crime Act.
+*   **LR4 (AI Transparency):** If the feed displays AI-recommended activities, the system must clearly indicate that it is an AI recommendation and explain the main factors contributing to it.
+*   **LR5 (Data Minimization):** Unnecessary personal data (e.g., National ID, home address) must not be collected or stored in the database, and all personal identifiers must be removed before using data to train AI models.
+
+## 5) Scope
+**Project Scope:** 
+The first phase of JoinGun will focus on creating a platform to match students within the same university for offline activities. Core features include university email verification, activity posting with map integration, an activity feed, and basic push notifications. (This phase excludes private chats and permanent group creation).
+
+**Primary Workflow:**
+1. New user signs up and verifies their identity via university email.
+2. User logs in, creates a profile, and configures privacy settings.
+3. User creates an activity, specifies details/time, and pins the location on the map.
+4. Other users browse the feed, search/filter, and join the activity.
+5. The system sends notifications to participants as the appointment time approaches.
+6. Users meet at the designated location, and the system logs the activity completion.
